@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 public class Player extends GameObject{
 	
 	public Texture tex = Game.getTextureInstance();
+	public LevelLoading lvlLoad = Game.getLevel();
 
 	private int width = 32;
 	private int height = 64;
@@ -52,6 +53,10 @@ public class Player extends GameObject{
 		return(new Rectangle(x, y + 5, 32, height));
 	}
 
+	public Rectangle renderBounds(){
+		return(new Rectangle(x - width*15, y - height*7, width * 30, height *37));
+	}
+
 
 	public void tick(LinkedList<GameObject> object){
 
@@ -60,8 +65,8 @@ public class Player extends GameObject{
 		//level Collision
 		collision(object, handler, height);
 		//Enemy Collision
-		monsterCollision(object);	
-		
+		monsterCollision(object);
+
 	}
 
 	private void monsterCollision(LinkedList<GameObject> object){
@@ -212,5 +217,9 @@ public class Player extends GameObject{
 		g.drawImage(image, x - 12, y + 5, 64, height, null);	
 		g.setColor(Color.RED);
 		g.drawRect(x, y + 5, 32, height);
+
+		g.setColor(Color.BLUE);
+		g2d.draw(renderBounds());
+		
 	}	
 }

@@ -22,7 +22,7 @@ public class Game extends Canvas implements Runnable{
 	//Handler Object
 
 	Handler handler;
-	Camera cam;
+	static Camera cam;
 	static LevelLoading lvlLoad;
 
 	static Texture tex;
@@ -59,7 +59,7 @@ public class Game extends Canvas implements Runnable{
 		tex = new Texture();
 
 		BufferedImageLoader loader = new BufferedImageLoader();
-		level = loader.loadImage("/backgroundImages/stage1.png");
+		level = loader.loadImage("/backgroundImages/stage1Copy.png");
 		background = loader.loadImage("backgroundImages/clouds.png");
 		underground = loader.loadImage("backgroundImages/underground.png");
 
@@ -155,7 +155,8 @@ public class Game extends Canvas implements Runnable{
 		}
 
 		handler.render(g);
-		
+		cam.render(g);
+
 		g2d.translate(-cam.getX(), -cam.getY());
 
 		/////////////////////////////////////
@@ -174,6 +175,10 @@ public class Game extends Canvas implements Runnable{
 		
 	public static Texture getTextureInstance(){
 		return tex;
+	}
+
+	public static Camera getCamera(){
+		return cam;
 	}
 
 	public static void main(String args[]){

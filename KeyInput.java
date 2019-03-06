@@ -7,8 +7,7 @@ public class KeyInput extends KeyAdapter{
 	Handler handler;
 	public static Animation animation = null;
 	private LinkedList<Integer> keys = new LinkedList<Integer>();
-	private LevelLoading level = Game.getLevel();
-
+	private LevelLoading lvlLoad = Game.getLevel();
 
 
 
@@ -36,13 +35,14 @@ public class KeyInput extends KeyAdapter{
 	public void keyPressed(KeyEvent e){
 		int code = e.getKeyCode();
 
+		lvlLoad.updateLevel();
+
 		for(int i = 0; i < handler.object.size(); i++){
 			GameObject tempObject = handler.object.get(i);
 
 			if(tempObject.getId() == ObjectId.Player){
 				tempObject.isIdle = false;
 
-				level.tick(tempObject.getX(), tempObject.getY());
 
 				if(code == KeyEvent.VK_RIGHT){
 					tempObject.isRight = true;

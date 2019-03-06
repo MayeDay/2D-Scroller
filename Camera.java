@@ -1,4 +1,7 @@
 import java.awt.Rectangle;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Color;
 
 public class Camera{
 	
@@ -6,6 +9,7 @@ public class Camera{
 	public int y;
 	public int width;
 	public int height;
+	private GameObject player;
 
 	public Camera(int x, int y){
 		this.x = x;
@@ -13,10 +17,7 @@ public class Camera{
 	}
 
 	public void tick(GameObject player){
-
-		width =-player.getX() + Game.WIDTH/2;
-		height = -player.getY()+ Game.HEIGHT/2;
-
+		this.player = player;
 
 		if(player.getX() >= 406 && player.getX() <= 6046){
 			x = -player.getX() + Game.WIDTH/2;
@@ -27,14 +28,14 @@ public class Camera{
 		}
 	}
 
-	public void render(){
+	public void render(Graphics g){
+
+		Graphics2D g2d = (Graphics2D)g;
 
 
 	}
 
-	public Rectangle getBounds(){
-		return (new Rectangle(x, y, Game.WIDTH/2, Game.HEIGHT/2));
-	}
+
 
 	public int getX(){
 		return x;
