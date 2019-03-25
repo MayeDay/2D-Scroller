@@ -11,7 +11,6 @@ public class Block extends GameObject{
 	private int type;
 
 
-
 	public Block(int x, int y, ObjectId id, BufferedImage image, int type){
 		super(x, y, id, image);
 

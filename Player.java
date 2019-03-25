@@ -213,7 +213,7 @@ public class Player extends GameObject{
 		}else{
 			movingLeft();
 		}
-	
+			
 		g.drawImage(image, x - 12, y + 5, 64, height, null);	
 		g.setColor(Color.RED);
 		g.drawRect(x, y + 5, 32, height);

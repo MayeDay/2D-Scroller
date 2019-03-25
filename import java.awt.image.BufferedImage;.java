@@ -36,6 +36,8 @@ public class LevelLoading{
 		player = new Player(450, 50, ObjectId.Player,tex.player[0], handler);
 		handler.addObject(player);
 
+		stageChunks[0] = 
+
 
 		splitImage();
 		loadLevel();
@@ -43,6 +45,7 @@ public class LevelLoading{
 
 	public void splitImage(){
 
+		image.getSubImage()
 
 	}
 

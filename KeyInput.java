@@ -9,6 +9,8 @@ public class KeyInput extends KeyAdapter{
 	private LinkedList<Integer> keys = new LinkedList<Integer>();
 	private LevelLoading lvlLoad = Game.getLevel();
 
+	int loop = 0;
+
 
 
 	public KeyInput(Handler handler){
@@ -34,8 +36,6 @@ public class KeyInput extends KeyAdapter{
 
 	public void keyPressed(KeyEvent e){
 		int code = e.getKeyCode();
-
-		lvlLoad.updateLevel();
 
 		for(int i = 0; i < handler.object.size(); i++){
 			GameObject tempObject = handler.object.get(i);
@@ -69,6 +69,7 @@ public class KeyInput extends KeyAdapter{
 				}
 			}
 		}
+		
 
 		if(code == KeyEvent.VK_ESCAPE){
 			System.exit(1);

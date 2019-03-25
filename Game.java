@@ -120,7 +120,6 @@ public class Game extends Canvas implements Runnable{
 				cam.tick(handler.object.get(i));
 			}
 		}
-
 	}
 
 	private void render(){
@@ -147,7 +146,7 @@ public class Game extends Canvas implements Runnable{
 
 		g2d.translate(cam.getX(), cam.getY());
 
-		for(int i = 0; i < background.getWidth()* 3; i+=background.getWidth()-8){
+		for(int i = 0; i < background.getWidth()* 7; i+=background.getWidth()-8){
 			g.drawImage(background, i, 0, null);
 			if(i < background.getWidth()*2){
 				g.drawImage(underground, i, background.getHeight(), null);	
